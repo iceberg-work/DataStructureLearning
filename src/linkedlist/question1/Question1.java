@@ -1,10 +1,4 @@
-/**
- * 修改了文件存储地址，这个文件放到了src/linkedlist/question1目录下
- */
-
-//该地址原代码
-
-/*package linkedlist;
+package linkedlist.question1;
 
 public class Question1 {
     //进行初始化操作，生成一个单链表，链表中有[1,2,3,4,5]，链表的头节点中储存的元素为1
@@ -33,35 +27,57 @@ public class Question1 {
         System.out.println(head.var);
     }
 
-public static Node func(Node head) {
+    /**
+     * 每隔一定间隔插入一个数字9，间隔量为1
+     *
+     * @param head 链表的头节点
+     * @return 新链表的头节点
+     */
+    public static Node func(Node head) {
         Node preHead = new Node(9, head);//在头结点前加一个节点
         Node inserted;
         if (head.next != null) {
-        func(head.next);
+            func(head.next);
         }
         inserted = new Node(9);
         inserted.next = head.next;
         head.next = inserted;
         return preHead;
-        }
-        }
+    }
+}
 
-
+/**
+ * 链表节点类，类似于c的结构体
+ */
 class Node {
     int var;
     Node next;//相当于存储下一个节点的地址
 
+    /**
+     * 链表节点类的构造方法（即生成一个对象）
+     *
+     * @param var 类型为int的节点元素
+     */
     public Node(int var) {
         this.next = null;
         this.var = var;
     }
 
+    /**
+     * 链表节点类的构造方法（即生成一个对象）
+     *
+     * @param var  类型为int的节点元素
+     * @param next 下一个节点
+     */
     public Node(int var, Node next) {
         this.next = next;
         this.var = var;
     }
 
+    /**
+     * 链表节点类的构造方法（即生成一个对象）
+     */
     public Node() {
         this.next = null;
     }
-}*/
+}
