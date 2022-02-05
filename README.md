@@ -1,8 +1,8 @@
-#DataStructureLearning
+# DataStructureLearning
 
-##linkedList
+## linkedList
 
-###Question1
+### Question1
 
 在一个链表中每隔一定间隔插入一个数字9，间隔量为1，采用双指针法，时间复杂度为O(n)
 
@@ -10,6 +10,6 @@
 
 插入一个节点时，靠前的节点不能为空，靠后的节点可以为空（front.next = inserted中front为空会抛空指针异常）
 
-###Question2
+### Question2
 
-合并两个有序链表，今天复习了迭代的方法，明天复习递归的方法
+合并两个有序链表，实现了迭代的方法和递归的方法，但对什么是迭代和递归产生疑问，同时对调用func后原链表产生的变化也有疑惑（头节点没有发生变化，但其余部分和新链表一致，猜测引用过程进行了地址传递）

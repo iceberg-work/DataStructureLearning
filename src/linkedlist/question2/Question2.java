@@ -7,21 +7,22 @@ package linkedlist.question2;
  */
 public class Question2 {
     //进行初始化操作，生成两个单链表，链表1中有[3，5，8]，链表2中有[2，4，6]，链表的头节点中储存的元素分别为3、2
-    static linkedList linkedList1, linkedList2;
+    static linkedList linkedList1, linkedList2,linkedList3, linkedList4;
 
     static {
         linkedList1 = new linkedList(new int[]{3, 5, 8});
         linkedList2 = new linkedList(new int[]{2, 4, 6});
+        linkedList3 = new linkedList(new int[]{3, 5, 8});
+        linkedList4 = new linkedList(new int[]{2, 4, 6});
     }
 
     public static void main(String[] args) {
         Node head = func(linkedList1.head, linkedList2.head);//接受新链表的头节点
         //输出生成的新链表
-        while (head.next != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-        System.out.println(head.val);
+        print(head);
+        //测试递归方法
+        head = funcByRecursion(linkedList3.head, linkedList4.head);
+        print(head);
     }
 
     /**
@@ -44,7 +45,40 @@ public class Question2 {
             }
             prev = prev.next;
         }
+        prev.next = head1 == null ? head2 : head1;
         return preHead.next;
+    }
+
+    /**
+     * 合并两个有序链表的递归方法
+     * @param head1 链表1的头节点
+     * @param head2 链表2的头节点
+     * @return 合并后链表的头节点
+     */
+    public static Node funcByRecursion(Node head1, Node head2) {
+        if (head1 == null) {
+            return head2;
+        } else if (head2 == null) {
+            return head1;
+        } else if (head1.val < head2.val) {
+            head1.next = funcByRecursion(head1.next,head2);
+            return head1;
+        } else {
+            head2.next = funcByRecursion(head1,head2.next);
+            return  head2;
+        }
+    }
+
+    /**
+     * 遍历链表并打印每一个节点中的元素
+     * @param head 链表的头节点
+     */
+    public static void print(Node head) {
+        while (head.next != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+        System.out.println(head.val);
     }
 }
 
