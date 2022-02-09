@@ -19,6 +19,16 @@ public class Question4 {
         }
         return pre;
     }
+
+    public static Node funcByRecursion(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node p = funcByRecursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
 }
 /**
  * 链表节点类，类似于c的结构体
